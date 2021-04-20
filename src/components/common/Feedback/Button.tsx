@@ -39,7 +39,7 @@ const Container = styled.div`
 `
 
 const Button = styled.button`
-  background-color: #001529;
+  background-color: #72e298;
   cursor: pointer;
   color: white;
   border-radius: 10px;

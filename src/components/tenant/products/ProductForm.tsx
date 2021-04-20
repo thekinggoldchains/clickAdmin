@@ -57,7 +57,7 @@ const LogoUpload = forwardRef<
 const PriceInput = forwardRef<
   React.ComponentPropsWithoutRef<typeof CurrencyInput>
 >(CurrencyInput, {
-  addonBefore: 'R$',
+  addonBefore: '€',
   size: 'large',
   spellCheck: 'false',
 })
@@ -172,14 +172,6 @@ const ProductForm: FC<Props> = ({
       autoComplete="off"
       scrollToFirstError
     >
-      <DocsSuggestion
-        docs={[
-          {
-            name: 'Como adicionar produtos no Alt',
-            href: 'https://docs.alt.app.br/docs/adicionando-um-produto-no-alt',
-          },
-        ]}
-      />
       <div className="flex justify-between mt3">
         <div className="w-80">
           <Item
@@ -315,16 +307,6 @@ const ProductForm: FC<Props> = ({
       <Divider>
         <Message id="tenant.product.assemblyOptions" />
       </Divider>
-
-      <DocsSuggestion
-        docs={[
-          {
-            name: 'Como configurar opções de montagem em um produto?',
-            href:
-              'https://docs.alt.app.br/docs/guides/configurando-opcoes-de-montagem-de-produto',
-          },
-        ]}
-      />
 
       <Form.List name="assemblyOptions">
         {(fields, { add, remove }) => {

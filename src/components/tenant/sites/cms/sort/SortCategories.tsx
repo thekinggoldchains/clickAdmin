@@ -112,7 +112,7 @@ const CategoryTitle = styled.a`
   color: rgba(0, 0, 0, 0.65);
   display: flex;
   :hover {
-    color: #001529;
+    color: #72e298;
   }
 `
 

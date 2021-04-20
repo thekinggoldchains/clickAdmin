@@ -86,6 +86,14 @@ const intlCategories: IntlSelect = [
     value: 'lanchonete',
   },
   {
+    name: 'tenant.category.lavanderia',
+    value: 'Lavanderia',
+  },
+  {
+    name: 'tenant.category.lava-rapido',
+    value: 'Lava-Rápido',
+  },
+  {
     name: 'tenant.category.hamburgueria',
     value: 'hamburgueria',
   },
@@ -195,7 +203,7 @@ const TenantDataForm: FC<Props> = ({ initialData, onSubmit, loading }) => {
             name="whatsapp"
             rules={rules.whatsapp}
           >
-            <InputMask disabled={loading} mask="+55 (99) 99999-9999">
+            <InputMask disabled={loading} mask="+999 999 999 999">
               <TextInput
                 placeholder={intl.formatMessage({
                   id: 'tenant.whatsappPlaceholder',

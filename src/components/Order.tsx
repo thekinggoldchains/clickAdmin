@@ -252,13 +252,13 @@ const Order: FC = () => {
                 </div>
               </div>
               <Footer className="tc mt2">
-                <b>Alt Zap ©2020 </b> - Gostou?{' '}
+                <b>Click Entregas ©2021 </b> - Gostou?{' '}
                 <a
                   target="_blank"
                   rel="noopener noreferrer"
-                  href="https://alt-zap.vercel.app"
+                  href="https://clickentregas.pt"
                 >
-                  Crie o seu!
+                  Consulte-nos
                 </a>
               </Footer>
             </Layout>

@@ -58,7 +58,7 @@ const SlugFormItem: FC<Props> = ({ disabled, form, currentSlug }) => {
     >
       <TextInput
         disabled={disabled}
-        addonAfter=".alt.app.br"
+        addonBefore="testeclick-7a64f.web.app/"
         onFocus={() => {
           const { name, slug } = form.getFieldsValue()
 

@@ -16,11 +16,11 @@ const SEO: FC<Props> = ({
   ogImage: ogImg,
   ogZap,
 }) => {
-  const pageTitle = title ?? 'Alt - Compartilhe seus produtos'
+  const pageTitle = title ?? 'Click Entregas - Admin'
 
   const pageDescription =
     description ??
-    'GRATUITO - Organize seus pedidos de delivery, configure seu catálogo/cardápio rapidamente e venda mais!'
+    'Organize seus pedidos de delivery, configure seu catálogo/cardápio rapidamente e venda mais!'
 
   const imageBase = 'https://portal.alt.app.br'
   const url = 'https://portal.alt.app.br'
@@ -30,7 +30,6 @@ const SEO: FC<Props> = ({
   const icon16 = `${imageBase}/favicon-16x16.png`
   const icon32 = `${imageBase}/favicon-32x32.png`
   const icon180 = `${imageBase}/apple-touch-icon.png`
-  const webManifest = `${imageBase}/site.webmanifest`
 
   return (
     <Helmet
@@ -44,7 +43,7 @@ const SEO: FC<Props> = ({
         },
         {
           name: 'themeColor',
-          content: '#041527',
+          content: '#72E298',
         },
         {
           name: `description`,
@@ -124,7 +123,6 @@ const SEO: FC<Props> = ({
       <link rel="apple-touch-icon" sizes="180x180" href={icon180} />
       <link rel="icon" type="image/png" sizes="32x32" href={icon32} />
       <link rel="icon" type="image/png" sizes="16x16" href={icon16} />
-      <link rel="manifest" href={webManifest} />
     </Helmet>
   )
 }

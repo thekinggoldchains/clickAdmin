@@ -63,7 +63,7 @@ const MaskedInput: FC<Props> = ({
       // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
       // @ts-ignore
       value={experimentalNumber ? value : initialValue}
-      addonBefore={experimentalNumber ? 'R$' : ''}
+      addonBefore={experimentalNumber ? '€' : ''}
       placeholder={placeholder}
       onChange={innerOnChange}
     />

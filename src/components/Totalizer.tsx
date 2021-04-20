@@ -87,9 +87,9 @@ const Totalizer = React.forwardRef<HTMLDivElement, Props>(
 
 const GoDownButton = styled.button<{ shouldDisplay: boolean }>`
   &:hover {
-    background-color: #01213f;
+    background-color: #37e270;
   }
-  background-color: #001529;
+  background-color: #72e298;
   color: white;
   border-radius: 10px;
   padding: 5px;

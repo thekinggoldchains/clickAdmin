@@ -20,10 +20,7 @@ const ListTenants: FC = () => {
     const db = firebase.firestore()
 
     // Refer to README.md
-    const userIdToFetch =
-      window?.location.hostname === 'localhost'
-        ? 'fKwGvMbdxiPsyuhsCuIHguByX5s1'
-        : user.uid
+    const userIdToFetch = user.uid
 
     const query = db
       .collection('tenants')

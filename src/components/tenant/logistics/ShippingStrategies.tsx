@@ -89,7 +89,7 @@ const ShippingStrategies: FC = () => {
                   }}
                 >
                   <CurrencyInput
-                    addonBefore="R$"
+                    addonBefore="€"
                     style={{ maxWidth: '120px' }}
                   />
                 </Item>

@@ -1,8 +1,8 @@
 import React, { FC, Fragment } from 'react'
 
-const formatter = new Intl.NumberFormat('pt-BR', {
+const formatter = new Intl.NumberFormat('pt-PT', {
   style: 'currency',
-  currency: 'BRL',
+  currency: 'EUR',
 })
 
 type Props = {

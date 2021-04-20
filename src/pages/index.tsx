@@ -2,7 +2,7 @@ import React, { FC, Fragment, useCallback, useState } from 'react'
 import { navigate } from 'gatsby'
 import { RouteComponentProps } from '@reach/router'
 import { GoogleLoginButton } from 'react-social-login-buttons'
-import { Layout, Button, Divider, Alert } from 'antd'
+import { Layout, Button, Divider } from 'antd'
 import { LoadingOutlined } from '@ant-design/icons'
 
 import logo from '../assets/Logo-site.png'
@@ -31,6 +31,7 @@ const HomePage: FC<RouteComponentProps> = () => {
             zIndex: 1,
             width: '100%',
             padding: '0 10px',
+            backgroundColor: '#72E298',
           }}
           className="flex justify-between tc mb3"
         >
@@ -40,7 +41,7 @@ const HomePage: FC<RouteComponentProps> = () => {
               src={logo}
               alt="Alt Zap"
               className="pa2"
-              style={{ maxHeight: '100px' }}
+              style={{ maxHeight: '100px', marginTop: -15 }}
             />
           </div>
           <div style={{ flex: 1 }} className="flex justify-end">
@@ -68,13 +69,7 @@ const HomePage: FC<RouteComponentProps> = () => {
               <span className="black f3 f1-l fw2 ph2 pt3 mt2 mb3 pb2 pa4 tc">
                 Compartilhe seus produtos e receba pedidos pelo Whatsapp
               </span>
-              <div className="flex justify-center">
-                <div className="bg-light-gray br4 shadow-1 pv1 ph2 fw3">
-                  <span className="b" style={{ color: '#1890FF' }}>
-                    GRATUITAMENTE
-                  </span>
-                </div>
-              </div>
+              <div className="flex justify-center" />
               <div className="flex justify-center pt3 mt3">
                 <img className="w-80 w-50-l h-auto" src={intro} alt="Alt Zap" />
               </div>
@@ -118,7 +113,7 @@ const HomePage: FC<RouteComponentProps> = () => {
                   <li>
                     Após isso, iremos{' '}
                     <b>gerar um link único para o seu negócio.</b> Se parece com
-                    algo assim: <i>alt-zap.vercel.app/bar-do-lucis</i>.
+                    algo assim: <i>click.app/alguma-coisa</i>.
                   </li>
                   <Divider />
                   <li>
@@ -137,27 +132,14 @@ const HomePage: FC<RouteComponentProps> = () => {
                 <span className="f3 fw3 mb3">Funcionalidades</span>
                 <ul>
                   <li>
-                    Preenchimento automático de endereço por CEP ou localização
+                    Preenchimento automático de endereço por Codigo postal ou
+                    localização -- Falta implementar
                   </li>
                   <li>
                     Produtos cadastrados podem ser desabilitados temporariamente
                   </li>
                   <li>Meios de Pagamento com descrição e imagem</li>
                 </ul>
-                <Alert
-                  type="info"
-                  className="ma2"
-                  message={
-                    <Fragment>
-                      {`O AltZap está em fase beta e futuramente traremos várias
-                    outras funcionalidades. Caso você se interesse em
-                    desenvolver, visite nosso `}
-                      <a href="https://github.com/lucis/alt-zap" rel="noopener">
-                        Github
-                      </a>
-                    </Fragment>
-                  }
-                />
               </div>
               <div className="flex flex-column items-center mt4">
                 <Button
@@ -168,11 +150,6 @@ const HomePage: FC<RouteComponentProps> = () => {
                 >
                   Veja um modelo!
                 </Button>
-              </div>
-              <div className="flex justify-center tc mt4">
-                <span className="f3 fw3 mb3">
-                  Crie sua página gratuitamente:
-                </span>
               </div>
               <div className="flex justify-center">
                 <GoogleLoginButton
@@ -188,10 +165,7 @@ const HomePage: FC<RouteComponentProps> = () => {
             </div>
           </div>
         </Content>
-        <Footer className="tc">
-          Alt Zap ©2020 -{' '}
-          <a href="https://github.com/alt-zap/alt-zap">Estamos no Github</a>
-        </Footer>
+        <Footer className="tc">Click Entregas ©2021</Footer>
       </Layout>
     </Fragment>
   )

@@ -23,36 +23,36 @@ const FeedbackOption: FC<Props> = ({ onSelect }) => {
 }
 
 const BugButton = styled.button`
-  border: 2px solid #001529;
+  border: 2px solid #4af382;
   background-color: white;
   padding: 9px 12px;
   border-radius: 14px;
-  color: #001529;
+  color: #72e298;
   font-size: 17px;
   margin: 10px 0;
   cursor: pointer;
   display: flex;
   align-items: center;
   &:hover {
-    border-color: #07233f;
-    color: #07233f;
+    border-color: #4af382;
+    color: #4af382;
   }
 `
 
 const FeatureButton = styled.button`
-  border: 2px solid #001529;
+  border: 2px solid #4af382;
   background-color: white;
   padding: 9px 12px;
   border-radius: 14px;
-  color: #001529;
+  color: #72e298;
   font-size: 17px;
   margin: 10px 0;
   cursor: pointer;
   display: flex;
   align-items: center;
   &:hover {
-    border-color: #07233f;
-    color: #07233f;
+    border-color: #4af382;
+    color: #4af382;
   }
 `
 

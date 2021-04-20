@@ -11,7 +11,7 @@ const AdminPage: FC = ({ children }) => {
       </Header>
       <Content style={{ margin: '24px 16px 0' }}>{children}</Content>
       <Footer style={{ textAlign: 'center' }}>
-        Alt Zap ©2020 Campina Grande - PB
+        Click Entregas ©2021 Covilhã - CB
       </Footer>
     </Layout>
   )

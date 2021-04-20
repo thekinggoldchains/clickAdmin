@@ -95,7 +95,7 @@ const Textarea = styled.textarea`
 
 const Button = styled.button`
   margin-top: 10px;
-  background-color: ${(props) => (props.disabled ? '#c4c4c4' : '#001529')};
+  background-color: ${(props) => (props.disabled ? '#c4c4c4' : '#72E298')};
   color: white;
   width: 100%;
   border-radius: 8px;

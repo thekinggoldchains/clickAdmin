@@ -111,7 +111,7 @@ export const generateLink = (order: Order, tenant: TenantConfig) => {
 *Nome do Cliente:* ${order?.customer?.name}
 *Itens do Pedido:*
 ${itemsSection + LINE_BREAK}
-*Total do Pedido:* R$ ${toString(order.totalizers?.finalPrice ?? 0)}
+*Total do Pedido:* ${toString(order.totalizers?.finalPrice ?? 0)}€
 
 ${messageForShipping(order, tenant)}
 ${
@@ -125,7 +125,7 @@ ${order.info ?? ''}
 *Meio de Pagamento:* ${order.payment?.type.name}
 ${
   order.payment?.changeFor
-    ? `Precisa de troco para R$ *${order.payment?.changeFor}*`
+    ? `Precisa de troco para *${order.payment?.changeFor}*€`
     : ''
 }`
 
@@ -138,7 +138,7 @@ export const generateGoogleMapsLink = (address?: WorldAddress) => {
   if (!address) return '#'
 
   const query = window.encodeURIComponent(
-    `${address.street} ${address.number} ${address.district} ${address.city} ${address.state}`
+    `${address.street} ${address.number} ${address.city} ${address.state}`
   )
 
   return `https://www.google.com/maps/search/?api=1&query=${query}`

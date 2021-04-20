@@ -1,7 +1,91 @@
 export const masks = {
-  CEP: '00000-000',
+  CEP: '0000-000',
   REAL: '0[00],00',
 }
+
+export const pais = [
+  {
+    pais: 'Portugal',
+  },
+  {
+    pais: 'Brasil',
+  },
+]
+
+export const estadosPt = [
+  {
+    uf: 'Aveiro',
+    value: 'Aveiro',
+  },
+  {
+    uf: 'Beja',
+    value: 'Beja',
+  },
+  {
+    uf: 'Braga',
+    value: 'Braga',
+  },
+  {
+    uf: 'Bragança',
+    value: 'Bragança',
+  },
+  {
+    uf: 'Castelo Branco',
+    value: 'Castelo Branco',
+  },
+  {
+    uf: 'Coimbra',
+    value: 'Coimbra',
+  },
+  {
+    uf: 'Évora',
+    value: 'Évora',
+  },
+  {
+    uf: 'Faro',
+    value: 'Faro',
+  },
+  {
+    uf: 'Guarda',
+    value: 'Guarda',
+  },
+  {
+    uf: 'Leiria',
+    value: 'Leiria',
+  },
+  {
+    uf: 'Lisboa',
+    value: 'Lisboa',
+  },
+  {
+    uf: 'Portalegre',
+    value: 'Portalegre',
+  },
+  {
+    uf: 'Porto',
+    value: 'Porto',
+  },
+  {
+    uf: 'Santarém',
+    value: 'Santarém',
+  },
+  {
+    uf: 'Setúbal',
+    value: 'Setúbal',
+  },
+  {
+    uf: 'Viana do Castelo',
+    value: 'Viana do Castelo',
+  },
+  {
+    uf: 'Vila Real',
+    value: 'Vila Real',
+  },
+  {
+    uf: 'Viseu',
+    value: 'Viseu',
+  },
+]
 
 export const estados = [
   {

@@ -21,7 +21,7 @@ const numberStore = new Store({
 
 export const UsingNumber = () => (
   <State store={numberStore}>
-    <CurrencyInput addonBefore="R$" />
+    <CurrencyInput addonBefore="€" />
   </State>
 )
 
@@ -36,7 +36,7 @@ const stringStore = new Store({
 
 export const UsingString = () => (
   <State store={stringStore}>
-    <CurrencyInput addonBefore="R$" valueAsString />
+    <CurrencyInput addonBefore="€" valueAsString />
   </State>
 )
 

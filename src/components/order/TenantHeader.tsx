@@ -12,7 +12,7 @@ const TenantHeader: FC = () => {
   const { tenant } = useTenantConfig()
   const { formatMessage } = useAltIntl()
 
-  const backgroundColor = tenant?.color ?? '#001529'
+  const backgroundColor = tenant?.color ?? '#72E298'
   const isOpen = useMemo(
     () =>
       tenant?.openingHours ? isTenantOpen(tenant?.openingHours ?? {}) : false,

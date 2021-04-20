@@ -68,7 +68,7 @@ const SitesDashboard: FC = () => {
             ]}
             dataSource={[
               {
-                address: `${tenant?.slug}.alt.app.br`,
+                address: `testeclick-7a64f.web.app/${tenant?.slug}`,
                 status: 'active',
                 key: 'alt-zap',
               },
