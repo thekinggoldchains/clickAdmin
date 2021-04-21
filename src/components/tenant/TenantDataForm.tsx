@@ -32,6 +32,17 @@ type Props = {
   onSubmit?: (data: TenantMetadata) => Promise<void>
 }
 
+type IpApiResponse = {
+  status: string
+  country: string
+  countryCode: string
+  region: string
+  regionName: string
+  city: string
+  timezone: string
+  query: string
+}
+
 const ImageUpload = forwardRef<
   React.ComponentPropsWithoutRef<typeof ImageUploadOriginal>
 >(ImageUploadOriginal)
@@ -151,6 +162,16 @@ const TenantDataForm: FC<Props> = ({ initialData, onSubmit, loading }) => {
   const intl = useAltIntl()
   const rules = useMemo(() => prepareRules(intlRules, intl), [intl])
   const categories = useMemo(() => prepareSelect(intlCategories, intl), [intl])
+  let phoneNumberMask = '+999 999 999 999'
+
+  fetch(`http://ip-api.com/json`)
+    .then((response) => response.json())
+    .then(({ countryCode }: IpApiResponse) => {
+      if (countryCode === 'BR') {
+        phoneNumberMask = '+99 99 99999 9999'
+      }
+    }
+  )
 
   const [form] = Form.useForm()
 
@@ -203,7 +224,7 @@ const TenantDataForm: FC<Props> = ({ initialData, onSubmit, loading }) => {
             name="whatsapp"
             rules={rules.whatsapp}
           >
-            <InputMask disabled={loading} mask="+999 999 999 999">
+            <InputMask disabled={loading} mask={phoneNumberMask}>
               <TextInput
                 placeholder={intl.formatMessage({
                   id: 'tenant.whatsappPlaceholder',
