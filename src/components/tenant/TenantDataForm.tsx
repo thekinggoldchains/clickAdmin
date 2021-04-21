@@ -170,8 +170,7 @@ const TenantDataForm: FC<Props> = ({ initialData, onSubmit, loading }) => {
       if (countryCode === 'BR') {
         phoneNumberMask = '+99 99 99999 9999'
       }
-    }
-  )
+    })
 
   const [form] = Form.useForm()
 
