@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-handler-names */
-import React, { FC, useMemo } from 'react'
+import React, { FC, useMemo, useState } from 'react'
 import { Form, Button, Select } from 'antd'
 import InputMask from 'react-input-mask'
 
@@ -158,19 +158,40 @@ const intlCategories: IntlSelect = [
   },
 ]
 
+const intlCountries: IntlSelect = [
+  {
+    name: 'tenant.country.brasil',
+    value: 'BR',
+  },
+  {
+    name: 'tenant.country.portugal',
+    value: 'PT',
+  },
+]
+
 const TenantDataForm: FC<Props> = ({ initialData, onSubmit, loading }) => {
   const intl = useAltIntl()
   const rules = useMemo(() => prepareRules(intlRules, intl), [intl])
   const categories = useMemo(() => prepareSelect(intlCategories, intl), [intl])
-  let phoneNumberMask = '+999 999 999 999'
+  const countries = useMemo(() => prepareSelect(intlCountries, intl), [intl])
+  const [phoneNumberMask, setPhoneNumberMask] = useState('+999 999 999 999')
+  const [phoneNumberPlaceholder, setPhoneNumberPlaceholder] = useState(
+    intl.formatMessage({ id: 'tenant.whatsappPTPlaceholder' })
+  )
 
-  fetch(`http://ip-api.com/json`)
-    .then((response) => response.json())
-    .then(({ countryCode }: IpApiResponse) => {
-      if (countryCode === 'BR') {
-        phoneNumberMask = '+99 99 99999 9999'
-      }
-    })
+  const onCountryChanged = (value: string) => {
+    if (value === 'PT') {
+      setPhoneNumberMask('+999 999 999 999')
+      setPhoneNumberPlaceholder(
+        intl.formatMessage({ id: 'tenant.whatsappPTPlaceholder' })
+      )
+    } else {
+      setPhoneNumberMask('+99 99 99999-9999')
+      setPhoneNumberPlaceholder(
+        intl.formatMessage({ id: 'tenant.whatsappBRPlaceholder' })
+      )
+    }
+  }
 
   const [form] = Form.useForm()
 
@@ -217,6 +238,35 @@ const TenantDataForm: FC<Props> = ({ initialData, onSubmit, loading }) => {
         </div>
       </div>
       <div className="flex flex-column flex-row-l">
+        <div className="w-100 w-50-l mr1">
+          <SlugFormItem
+            disabled={!!loading}
+            form={form}
+            currentSlug={initialData?.slug ?? ''}
+          />
+        </div>
+        <div className="w-100 w-50-l">
+          <Item
+            label={<Message id="tenant.country" />}
+            name="country"
+            rules={rules.required}
+          >
+            <Select
+              disabled={loading}
+              size="large"
+              placeholder={<Message id="tenant.countryPlaceholder" />}
+              onChange={onCountryChanged}
+            >
+              {countries?.map(({ name, value }) => (
+                <Option value={value} key={value}>
+                  {name}
+                </Option>
+              ))}
+            </Select>
+          </Item>
+        </div>
+      </div>
+      <div className="flex flex-column flex-row-l">
         <div className="w-100 w-50-l mr0 mr1-l">
           <Item
             label={<Message id="tenant.whatsapp" />}
@@ -224,11 +274,7 @@ const TenantDataForm: FC<Props> = ({ initialData, onSubmit, loading }) => {
             rules={rules.whatsapp}
           >
             <InputMask disabled={loading} mask={phoneNumberMask}>
-              <TextInput
-                placeholder={intl.formatMessage({
-                  id: 'tenant.whatsappPlaceholder',
-                })}
-              />
+              <TextInput placeholder={phoneNumberPlaceholder} />
             </InputMask>
           </Item>
         </div>
