@@ -239,13 +239,6 @@ const TenantDataForm: FC<Props> = ({ initialData, onSubmit, loading }) => {
       </div>
       <div className="flex flex-column flex-row-l">
         <div className="w-100 w-50-l mr1">
-          <SlugFormItem
-            disabled={!!loading}
-            form={form}
-            currentSlug={initialData?.slug ?? ''}
-          />
-        </div>
-        <div className="w-100 w-50-l">
           <Item
             label={<Message id="tenant.country" />}
             name="country"
@@ -256,6 +249,7 @@ const TenantDataForm: FC<Props> = ({ initialData, onSubmit, loading }) => {
               size="large"
               placeholder={<Message id="tenant.countryPlaceholder" />}
               onChange={onCountryChanged}
+              defaultValue="PT"
             >
               {countries?.map(({ name, value }) => (
                 <Option value={value} key={value}>
@@ -265,8 +259,6 @@ const TenantDataForm: FC<Props> = ({ initialData, onSubmit, loading }) => {
             </Select>
           </Item>
         </div>
-      </div>
-      <div className="flex flex-column flex-row-l">
         <div className="w-100 w-50-l mr0 mr1-l">
           <Item
             label={<Message id="tenant.whatsapp" />}
