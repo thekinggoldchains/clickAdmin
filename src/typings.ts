@@ -209,6 +209,7 @@ export type Order = {
   date: string
   items: OrderItem[]
   info?: string
+  scheduling?: string
   customer?: {
     name: string
   }

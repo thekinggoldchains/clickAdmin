@@ -124,7 +124,7 @@ ${
 }
 ${order.info ?? ''} 
 
-*Agendamento do pedido:* TODO: passar o parametro do date e timepicker, para concatenação de mensagem do whatsapp
+${order.scheduling ? `*Agendamento do pedido:* ${order.scheduling}` : ''}
 
 
 ${
