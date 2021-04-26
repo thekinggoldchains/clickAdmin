@@ -1,5 +1,18 @@
 import React, { FC, useCallback, useMemo, Fragment, useState } from 'react'
-import { Affix, Alert, Button, Form, Divider, Input, Spin, Layout } from 'antd'
+import {
+  Affix,
+  Alert,
+  Button,
+  Form,
+  Divider,
+  Input,
+  Spin,
+  Layout,
+  DatePicker,
+  TimePicker,
+  Radio,
+  Checkbox,
+} from 'antd'
 import { SendOutlined } from '@ant-design/icons'
 import * as firebase from 'firebase/app'
 import slugify from 'slugify'
@@ -44,6 +57,8 @@ const Order: FC = () => {
   const [{ order }, dispatch] = useOrder()
   const shippingAddress = order?.shipping?.address
   const [isAddressOnViewport, setAddressOnViewport] = useState(false)
+
+  const [ativainput, setAtivainput] = useState(false)
 
   // Dirty hack to initially select a shipping method
   useInitialShipping(tenant, order, dispatch)
@@ -212,8 +227,24 @@ const Order: FC = () => {
                     <Item name="info" label="Outras informações?">
                       <TextArea
                         className="mv2"
-                        placeholder="Ex: Tira o sal da batata frita"
+                        placeholder="Ex: Não quero item X ou Y"
                       />
+                    </Item>
+                    <Item>
+                      <Checkbox
+                        checked={ativainput}
+                        onChange={() => setAtivainput(!ativainput)}
+                      >
+                        Agendar pedido?
+                      </Checkbox>
+                      <h1>{ativainput}</h1>
+                    </Item>
+                    <Item
+                      name="agendamento"
+                      label="Agende a entrega ou retirada"
+                    >
+                      <DatePicker disabled={!ativainput} />
+                      <TimePicker format="HH:mm" disabled={!ativainput} />
                     </Item>
                     <Item
                       name="name"

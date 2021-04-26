@@ -53,7 +53,7 @@
     "uuid": "^8.2.0"
   },
   "keywords": [],
-  "name": "altzap",
+  "name": "click",
   "description": "Compartilhe seu cardápio e receba pedidos pelo Whatsapp",
   "version": "0.0.180",
   "devDependencies": {

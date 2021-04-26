@@ -122,6 +122,8 @@ ${
 }
 ${order.info ?? ''} 
 
+*Agendamento do pedido:* TODO: passar o parametro do date e timepicker, para concatenação de mensagem do whatsapp
+
 *Meio de Pagamento:* ${order.payment?.type.name}
 ${
   order.payment?.changeFor
