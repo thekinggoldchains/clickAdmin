@@ -43,9 +43,11 @@ const messageForAddress = (address?: WorldAddress) => {
     additionalInfo,
   } = address
 
-  return `${street} - ${number}
-${complement ?? '(s/c)'} - ${district ?? ''}
-${city} - ${state}
+  const query = window.encodeURIComponent(
+    `${street} ${number} ${city} ${state}`
+  )
+
+  return `http://maps.google.com/maps?q=${query}
 *Referência:* ${additionalInfo}`
 }
 
