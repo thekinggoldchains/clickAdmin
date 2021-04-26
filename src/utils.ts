@@ -44,7 +44,7 @@ const messageForAddress = (address?: WorldAddress) => {
   } = address
 
   return `${street} - ${number}
-${complement ?? '(s/c)'} - ${district}
+${complement ?? '(s/c)'} - ${district ?? ''}
 ${city} - ${state}
 *Referência:* ${additionalInfo}`
 }
@@ -124,7 +124,12 @@ ${order.info ?? ''}
 
 *Agendamento do pedido:* TODO: passar o parametro do date e timepicker, para concatenação de mensagem do whatsapp
 
-*Meio de Pagamento:* ${order.payment?.type.name}
+
+${
+  order.payment?.type.name
+    ? `*Meio de Pagamento:* ${order.payment?.changeFor}`
+    : ''
+}
 ${
   order.payment?.changeFor
     ? `Precisa de troco para *${order.payment?.changeFor}*€`
