@@ -9,8 +9,6 @@ import {
   Spin,
   Layout,
   DatePicker,
-  TimePicker,
-  Radio,
   Checkbox,
 } from 'antd'
 import { SendOutlined } from '@ant-design/icons'
@@ -46,6 +44,7 @@ const { Item } = Form
 interface TempFormData extends WorldAddress {
   name: string
   info?: string
+  scheduling?: Moment
   shippingMethod?: ShippingMethod
 }
 
@@ -58,7 +57,7 @@ const Order: FC = () => {
   const shippingAddress = order?.shipping?.address
   const [isAddressOnViewport, setAddressOnViewport] = useState(false)
 
-  const [ativainput, setAtivainput] = useState(false)
+  const [isScheduled, setIsScheduled] = useState(false)
 
   // Dirty hack to initially select a shipping method
   useInitialShipping(tenant, order, dispatch)
@@ -192,7 +191,12 @@ const Order: FC = () => {
                     onValuesChange={(_, data) => {
                       const formData = data as TempFormData
 
-                      const { name, info, shippingMethod } = formData
+                      const {
+                        name,
+                        info,
+                        shippingMethod,
+                        scheduling,
+                      } = formData
 
                       const partialOrder: Partial<OrderType> = {
                         customer: {
@@ -210,6 +214,9 @@ const Order: FC = () => {
                                 : 0,
                           },
                         }),
+                        scheduling: isScheduled
+                          ? scheduling?.format('DD-MM-YYYY HH:mm')
+                          : undefined,
                       }
 
                       dispatch({
@@ -230,21 +237,24 @@ const Order: FC = () => {
                         placeholder="Ex: Não quero item X ou Y"
                       />
                     </Item>
-                    <Item>
+                    <Item name="scheduled">
                       <Checkbox
-                        checked={ativainput}
-                        onChange={() => setAtivainput(!ativainput)}
+                        checked={isScheduled}
+                        onChange={() => setIsScheduled(!isScheduled)}
                       >
                         Agendar pedido?
                       </Checkbox>
-                      <h1>{ativainput}</h1>
                     </Item>
                     <Item
-                      name="agendamento"
+                      name="scheduling"
                       label="Agende a entrega ou retirada"
+                      rules={[{ required: isScheduled }]}
                     >
-                      <DatePicker disabled={!ativainput} />
-                      <TimePicker format="HH:mm" disabled={!ativainput} />
+                      <DatePicker
+                        showTime
+                        format="DD-MM-YYYY HH:mm"
+                        disabled={!isScheduled}
+                      />
                     </Item>
                     <Item
                       name="name"
