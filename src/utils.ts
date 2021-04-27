@@ -129,7 +129,7 @@ ${order.scheduling ? `*Agendamento do pedido:* ${order.scheduling}` : ''}
 
 ${
   order.payment?.type.name
-    ? `*Meio de Pagamento:* ${order.payment?.changeFor}`
+    ? `*Meio de Pagamento:* ${order.payment?.type.name}`
     : ''
 }
 ${

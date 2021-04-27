@@ -242,12 +242,14 @@ const Order: FC = () => {
                         checked={isScheduled}
                         onChange={() => setIsScheduled(!isScheduled)}
                       >
-                        Agendar pedido?
+                        <Message id="order.scheduling.check" />
                       </Checkbox>
                     </Item>
                     <Item
                       name="scheduling"
-                      label="Agende a entrega ou retirada"
+                      label={intl.formatMessage({
+                        id: 'order.scheduling.info',
+                      })}
                       rules={[{ required: isScheduled }]}
                     >
                       <DatePicker

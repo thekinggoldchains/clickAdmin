@@ -218,6 +218,8 @@ export const intlConfig = {
       'Você deve selecionar pelo menos {min} {min, plural, one {opção} other {opções}}.',
     'order.field.description': 'Informações Extras',
     'order.field.descriptionPlaceholder': 'Ex: Por favor, tire as cebolas.',
+    'order.scheduling.info': 'Agende a entrega ou retirada',
+    'order.scheduling.check': 'Agendar Pedido?',
     'onboard.personalData': 'Dados pessoais',
     'onboard.yourBusiness': 'Seu negócio',
     'onboard.fillYourData':
